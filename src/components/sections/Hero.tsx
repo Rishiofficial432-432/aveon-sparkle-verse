@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import ParticleField from '@/components/3d/ParticleField';
+import Hyperspeed from '@/components/3d/Hyperspeed';
 import Navigation from '@/components/ui/Navigation';
-import heroBackground from '@/assets/hero-bg.jpg';
 
 export default function Hero() {
   return (
@@ -9,14 +9,37 @@ export default function Hero() {
       {/* Dark Veil Background */}
       <div className="absolute inset-0 -z-20 bg-gradient-veil"></div>
       
-      {/* Animated Purple Glow */}
-      <div className="absolute inset-0 -z-10 bg-gradient-glow opacity-60 animate-pulse"></div>
-
-      {/* 3D Particle Field */}
-      <ParticleField />
+      {/* Hyperspeed Background Effect */}
+      <div className="absolute inset-0 -z-10 opacity-80">
+        <Hyperspeed 
+          effectOptions={{
+            distortion: 'turbulentDistortion',
+            length: 400,
+            roadWidth: 12,
+            islandWidth: 3,
+            lanesPerRoad: 3,
+            fov: 90,
+            fovSpeedUp: 150,
+            speedUp: 2,
+            carLightsFade: 0.6,
+            totalSideLightSticks: 30,
+            lightPairsPerRoadWay: 50,
+            colors: {
+              roadColor: 0x0a0a0a,
+              islandColor: 0x0f0f0f,
+              background: 0x000000,
+              shoulderLines: 0x8b5cf6,
+              brokenLines: 0x8b5cf6,
+              leftCars: [0x8b5cf6, 0x6366f1, 0x7c3aed],
+              rightCars: [0x06b6d4, 0x0ea5e9, 0x3b82f6],
+              sticks: 0x8b5cf6,
+            }
+          }}
+        />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
+      <div className="relative z-20 text-center max-w-6xl mx-auto px-6">
         {/* Navigation positioned above text */}
         <div className="mb-8">
           <Navigation />

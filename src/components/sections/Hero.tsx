@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import ParticleField from '@/components/3d/ParticleField';
+import Navigation from '@/components/ui/Navigation';
 import heroBackground from '@/assets/hero-bg.jpg';
 
 export default function Hero() {
@@ -16,6 +17,11 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
+        {/* Navigation positioned above text */}
+        <div className="mb-8">
+          <Navigation />
+        </div>
+        
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

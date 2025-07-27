@@ -25,9 +25,10 @@ export default function Navigation() {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50"
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      className="relative z-50 mb-16"
     >
       <div className={`
         relative px-8 py-4 rounded-full transition-all duration-500

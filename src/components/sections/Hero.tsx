@@ -5,15 +5,11 @@ import heroBackground from '@/assets/hero-bg.jpg';
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 -z-20">
-        <img 
-          src={heroBackground} 
-          alt="AI Neural Network" 
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
-      </div>
+      {/* Dark Veil Background */}
+      <div className="absolute inset-0 -z-20 bg-gradient-veil"></div>
+      
+      {/* Animated Purple Glow */}
+      <div className="absolute inset-0 -z-10 bg-gradient-glow opacity-60 animate-pulse"></div>
 
       {/* 3D Particle Field */}
       <ParticleField />
@@ -36,12 +32,12 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p 
-            className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            A Revolution in Intelligence. We're not building tools. We're crafting intelligent systems designed to think, adapt, and revolutionize the way industries operate.
+            Become emboldened by the flame of ambition. We're crafting intelligent systems designed to think, adapt, and revolutionize the way industries operate.
           </motion.p>
 
           <motion.div 

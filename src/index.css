@@ -8,56 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Aveon AI Dark Theme - Base Colors */
-    --background: 217 33% 3%;
-    --foreground: 220 9% 94%;
+    /* Dark Veil Theme - Deep Purple & Black */
+    --background: 270 15% 4%;
+    --foreground: 270 5% 95%;
     
-    /* Cards with glass effect */
-    --card: 217 33% 6%;
-    --card-foreground: 220 9% 94%;
+    /* Cards with dark glass effect */
+    --card: 270 15% 8%;
+    --card-foreground: 270 5% 95%;
     
     /* Popovers */
-    --popover: 217 33% 6%;
-    --popover-foreground: 220 9% 94%;
+    --popover: 270 15% 8%;
+    --popover-foreground: 270 5% 95%;
     
-    /* Electric Purple Primary */
-    --primary: 248 100% 67%;
-    --primary-foreground: 217 33% 3%;
+    /* Purple Primary */
+    --primary: 270 100% 75%;
+    --primary-foreground: 270 15% 4%;
     
-    /* Glass Secondary */
-    --secondary: 217 33% 8%;
-    --secondary-foreground: 220 9% 94%;
+    /* Dark Glass Secondary */
+    --secondary: 270 15% 12%;
+    --secondary-foreground: 270 5% 95%;
     
     /* Muted elements */
-    --muted: 217 33% 10%;
-    --muted-foreground: 220 5% 65%;
+    --muted: 270 15% 15%;
+    --muted-foreground: 270 5% 65%;
     
-    /* Neon accent */
-    --accent: 260 100% 75%;
-    --accent-foreground: 217 33% 3%;
+    /* Violet accent */
+    --accent: 285 100% 80%;
+    --accent-foreground: 270 15% 4%;
     
     /* Destructive */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 220 9% 94%;
+    --destructive-foreground: 270 5% 95%;
     
     /* Borders and inputs */
-    --border: 217 33% 15%;
-    --input: 217 33% 12%;
-    --ring: 248 100% 67%;
+    --border: 270 15% 20%;
+    --input: 270 15% 15%;
+    --ring: 270 100% 75%;
     
     /* Glass morphism */
-    --glass: 217 33% 8% / 0.3;
-    --glass-border: 220 9% 94% / 0.1;
+    --glass: 270 15% 8% / 0.2;
+    --glass-border: 270 5% 95% / 0.1;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(248 100% 67%), hsl(260 100% 75%));
-    --gradient-secondary: linear-gradient(135deg, hsl(217 33% 8%), hsl(217 33% 12%));
-    --gradient-glow: radial-gradient(circle at center, hsl(248 100% 67% / 0.3), transparent 70%);
+    /* Dark Veil Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 100% 75%), hsl(285 100% 80%));
+    --gradient-secondary: linear-gradient(135deg, hsl(270 15% 8%), hsl(270 15% 15%));
+    --gradient-glow: radial-gradient(circle at center, hsl(270 100% 75% / 0.3), transparent 70%);
+    --gradient-veil: linear-gradient(180deg, hsl(270 15% 4%), hsl(270 40% 15%), hsl(270 60% 25%));
     
     /* Glow effects */
-    --glow-primary: 0 0 20px hsl(248 100% 67% / 0.5);
-    --glow-accent: 0 0 30px hsl(260 100% 75% / 0.4);
-    --glow-subtle: 0 4px 20px hsl(217 33% 3% / 0.4);
+    --glow-primary: 0 0 30px hsl(270 100% 75% / 0.5);
+    --glow-accent: 0 0 40px hsl(285 100% 80% / 0.4);
+    --glow-subtle: 0 8px 30px hsl(270 15% 4% / 0.6);
     
     /* Radius */
     --radius: 0.75rem;

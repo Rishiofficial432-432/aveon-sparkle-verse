@@ -27,54 +27,65 @@ export default function Navigation() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-card backdrop-blur-md' : 'bg-transparent'
-      }`}
+      className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50"
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className={`
+        relative px-8 py-4 rounded-full transition-all duration-500
+        ${isScrolled 
+          ? 'glass-card backdrop-blur-md shadow-glow' 
+          : 'bg-card/20 backdrop-blur-sm border border-white/10'
+        }
+      `}>
+        {/* Curved background */}
+        <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-10"></div>
+        
+        <div className="relative flex items-center justify-between space-x-12">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-3"
           >
-            <img src={aveonLogo} alt="Aveon AI" className="w-10 h-10" />
-            <span className="text-xl font-bold gradient-text">AVEON AI</span>
+            <img src={aveonLogo} alt="Aveon AI" className="w-8 h-8" />
+            <span className="text-lg font-bold gradient-text">AVEON AI</span>
           </motion.div>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <motion.a
                 key={item.name}
                 href={item.href}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 relative group"
+                className="text-foreground/80 hover:text-primary transition-colors duration-200 relative group text-sm font-medium"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
               </motion.a>
             ))}
           </div>
 
           {/* CTA Button */}
           <motion.button
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 25px hsl(var(--primary) / 0.6)" }}
             whileTap={{ scale: 0.95 }}
-            className="glow-button hidden md:block"
+            className="hidden md:block bg-primary text-primary-foreground px-6 py-2 rounded-full font-medium transition-all duration-300 hover:shadow-glow text-sm"
           >
             Get Started
           </motion.button>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button className="text-foreground">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <motion.div 
+            className="md:hidden"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <button className="text-foreground p-2 rounded-full hover:bg-white/10 transition-colors">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.nav>

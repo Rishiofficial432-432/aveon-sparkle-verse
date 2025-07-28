@@ -1,4 +1,4 @@
-#hyperspeed-container {
+#lights {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -8,7 +8,7 @@
   z-index: 1;
 }
 
-#hyperspeed-container canvas {
+#lights canvas {
   width: 100%;
   height: 100%;
   display: block;

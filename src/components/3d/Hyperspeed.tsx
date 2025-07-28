@@ -96,11 +96,11 @@ const defaultOptions: HyperspeedOptions = {
     roadColor: 0x080808,
     islandColor: 0x0a0a0a,
     background: 0x000000,
-    shoulderLines: 0x8b5cf6,
-    brokenLines: 0x8b5cf6,
-    leftCars: [0x8b5cf6, 0x6366f1, 0x7c3aed],
-    rightCars: [0x06b6d4, 0x0ea5e9, 0x3b82f6],
-    sticks: 0x8b5cf6,
+    shoulderLines: 0xffffff,
+    brokenLines: 0xffffff,
+    leftCars: [0xd856bf, 0x6750a2, 0xc247ac],
+    rightCars: [0x03b3c3, 0x0e5ea5, 0x324555],
+    sticks: 0x03b3c3,
   },
 };
 
@@ -1275,7 +1275,7 @@ const Hyperspeed: FC<HyperspeedProps> = ({ effectOptions = {} }) => {
   useEffect(() => {
     if (appRef.current) {
       appRef.current.dispose();
-      const container = document.getElementById('hyperspeed-container');
+      const container = document.getElementById('lights');
       if (container) {
         while (container.firstChild) {
           container.removeChild(container.firstChild);
@@ -1302,7 +1302,7 @@ const Hyperspeed: FC<HyperspeedProps> = ({ effectOptions = {} }) => {
     };
   }, [mergedOptions]);
 
-  return <div id="hyperspeed-container" ref={hyperspeed}></div>;
+  return <div id="lights" ref={hyperspeed}></div>;
 };
 
 export default Hyperspeed;

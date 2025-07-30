@@ -108,21 +108,6 @@ export default function Features() {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="glow-button text-lg px-8 py-4"
-          >
-            Explore All Features
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

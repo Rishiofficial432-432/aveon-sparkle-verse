@@ -1,18 +1,21 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import aveonLogo from '@/assets/aveon-logo.png';
+import { useScrollspy } from '@/hooks/useScrollspy';
+import MobileMenu from './MobileMenu';
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Features', href: '#features' },
-  { name: 'Roadmap', href: '#roadmap' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '#home', id: 'home' },
+  { name: 'About', href: '#about', id: 'about' },
+  { name: 'Features', href: '#features', id: 'features' },
+  { name: 'Roadmap', href: '#roadmap', id: 'roadmap' },
+  { name: 'Pricing', href: '#pricing', id: 'pricing' },
+  { name: 'Contact', href: '#contact', id: 'contact' },
 ];
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const activeSection = useScrollspy(navItems.map(item => item.id));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,10 +61,16 @@ export default function Navigation() {
                 href={item.href}
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 relative group text-sm font-medium"
+                className={`transition-colors duration-200 relative group text-sm font-medium ${
+                  activeSection === item.id 
+                    ? 'text-primary' 
+                    : 'text-foreground/80 hover:text-primary'
+                }`}
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full rounded-full"></span>
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 rounded-full ${
+                  activeSection === item.id ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}></span>
               </motion.a>
             ))}
           </div>
@@ -75,18 +84,8 @@ export default function Navigation() {
             Get Started
           </motion.button>
 
-          {/* Mobile Menu Button */}
-          <motion.div 
-            className="md:hidden"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <button className="text-foreground p-2 rounded-full hover:bg-white/10 transition-colors">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </motion.div>
+          {/* Mobile Menu */}
+          <MobileMenu />
         </div>
       </div>
     </motion.nav>

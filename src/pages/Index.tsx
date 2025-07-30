@@ -6,6 +6,7 @@ import Roadmap from '@/components/sections/Roadmap';
 import Pricing from '@/components/sections/Pricing';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/ui/Footer';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <Pricing />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

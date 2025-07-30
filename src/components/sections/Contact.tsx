@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Mail, MessageSquare, Github, Twitter, Linkedin } from 'lucide-react';
+import { Mail, MessageSquare, Github, Twitter, Linkedin, Loader2 } from 'lucide-react';
+import { useContactForm } from '@/hooks/useContactForm';
+import { useNewsletter } from '@/hooks/useNewsletter';
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { formData, isLoading, handleInputChange, handleSubmit } = useContactForm();
+  const { email, setEmail, isLoading: newsletterLoading, handleSubscribe } = useNewsletter();
 
   const socialLinks = [
     { icon: Github, href: '#', label: 'GitHub' },
@@ -41,13 +45,16 @@ export default function Contact() {
           >
             <h3 className="text-2xl font-bold mb-6 gradient-text">Send us a message</h3>
             
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium mb-2">Name</label>
                 <input
                   type="text"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
                   className="w-full bg-input border border-border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
                   placeholder="Your full name"
+                  required
                 />
               </div>
               
@@ -55,8 +62,11 @@ export default function Contact() {
                 <label className="block text-sm font-medium mb-2">Email</label>
                 <input
                   type="email"
+                  value={formData.email}
+                  onChange={(e) => handleInputChange('email', e.target.value)}
                   className="w-full bg-input border border-border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
                   placeholder="your.email@company.com"
+                  required
                 />
               </div>
               
@@ -64,8 +74,11 @@ export default function Contact() {
                 <label className="block text-sm font-medium mb-2">Subject</label>
                 <input
                   type="text"
+                  value={formData.subject}
+                  onChange={(e) => handleInputChange('subject', e.target.value)}
                   className="w-full bg-input border border-border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
                   placeholder="How can we help you?"
+                  required
                 />
               </div>
               
@@ -73,18 +86,29 @@ export default function Contact() {
                 <label className="block text-sm font-medium mb-2">Message</label>
                 <textarea
                   rows={5}
+                  value={formData.message}
+                  onChange={(e) => handleInputChange('message', e.target.value)}
                   className="w-full bg-input border border-border rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 resize-none"
                   placeholder="Tell us about your project or questions..."
-                ></textarea>
+                  required
+                />
               </div>
               
               <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full glow-button py-3"
+                whileHover={{ scale: isLoading ? 1 : 1.02 }}
+                whileTap={{ scale: isLoading ? 1 : 0.98 }}
+                className="w-full glow-button py-3 disabled:opacity-50 disabled:cursor-not-allowed"
                 type="submit"
+                disabled={isLoading}
               >
-                Send Message
+                {isLoading ? (
+                  <div className="flex items-center justify-center space-x-2">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Sending...</span>
+                  </div>
+                ) : (
+                  'Send Message'
+                )}
               </motion.button>
             </form>
           </motion.div>
@@ -148,20 +172,29 @@ export default function Contact() {
               <p className="text-foreground/80 mb-4">
                 Subscribe to our newsletter for the latest AI insights and product updates.
               </p>
-              <div className="flex space-x-2">
+              <form onSubmit={handleSubscribe} className="flex space-x-2">
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
                   className="flex-1 bg-input border border-border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
+                  required
                 />
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="glow-button px-4 py-2 text-sm"
+                  whileHover={{ scale: newsletterLoading ? 1 : 1.05 }}
+                  whileTap={{ scale: newsletterLoading ? 1 : 0.95 }}
+                  className="glow-button px-4 py-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="submit"
+                  disabled={newsletterLoading}
                 >
-                  Subscribe
+                  {newsletterLoading ? (
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                  ) : (
+                    'Subscribe'
+                  )}
                 </motion.button>
-              </div>
+              </form>
             </div>
           </motion.div>
         </div>

@@ -69,28 +69,6 @@ export default function Hero() {
             Become emboldened by the flame of ambition. We're crafting intelligent systems designed to think, adapt, and revolutionize the way industries operate.
           </motion.p>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.1 }}
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="glow-button text-lg px-8 py-4 pulse-glow"
-            >
-              Explore Our AI
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="glass-card text-lg px-8 py-4 hover:bg-white/5 transition-all duration-300"
-            >
-              Watch Demo
-            </motion.button>
-          </motion.div>
         </motion.div>
 
         {/* Floating Stats */}

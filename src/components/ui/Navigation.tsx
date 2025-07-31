@@ -41,7 +41,7 @@ export default function Navigation() {
         }
       `}>
         {/* Curved background */}
-        <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-10"></div>
+        <div className="absolute inset-x-0 -inset-y-4 rounded-full bg-gradient-primary opacity-10"></div>
         
         <div className="relative flex items-center justify-between space-x-12">
           {/* Logo */}

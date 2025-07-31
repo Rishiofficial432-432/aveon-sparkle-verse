@@ -45,7 +45,7 @@ export default function About() {
             <div className="mt-8 grid grid-cols-2 gap-6">
               {[
                 { title: 'Founded', value: '2023' },
-                { title: 'Team Size', value: '50+' },
+                { title: 'Team Size', value: '10+' },
                 { title: 'Countries', value: '15+' },
                 { title: 'AI Models', value: '100+' }
               ].map((item, index) => (

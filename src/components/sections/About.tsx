@@ -46,7 +46,7 @@ export default function About() {
               {[
                 { title: 'Founded', value: '2023' },
                 { title: 'Team Size', value: '10+' },
-                { title: 'Countries', value: '15+' },
+                { title: 'Countries', value: '3' },
                 { title: 'AI Models', value: '100+' }
               ].map((item, index) => (
                 <motion.div

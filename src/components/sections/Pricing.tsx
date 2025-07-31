@@ -34,5 +34,11 @@ export default function Pricing() {
     once: true,
     margin: "-100px"
   });
-  return;
+  return (
+    <section id="pricing" className="py-20 px-6">
+      <div className="max-w-7xl mx-auto text-center">
+        {/* Empty pricing section */}
+      </div>
+    </section>
+  );
 }

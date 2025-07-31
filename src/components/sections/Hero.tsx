@@ -80,7 +80,7 @@ export default function Hero() {
         >
           {[
             { number: '99.9%', label: 'Uptime Guarantee' },
-            { number: '50K+', label: 'AI Agents Deployed' },
+            { number: '20+', label: 'AI Agents Deployed' },
             { number: '24/7', label: 'Support Available' }
           ].map((stat, index) => (
             <motion.div

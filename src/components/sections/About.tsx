@@ -1,20 +1,26 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-
 export default function About() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <section id="about" className="py-20 px-6 relative">
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-100px"
+  });
+  return <section id="about" className="py-20 px-6 relative">
       <div className="max-w-7xl mx-auto" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 50
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {
+        opacity: 0,
+        y: 50
+      }} transition={{
+        duration: 0.8
+      }} className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             About <span className="gradient-text">Aveon AI</span>
           </h2>
@@ -25,11 +31,19 @@ export default function About() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: -50
+        }} animate={isInView ? {
+          opacity: 1,
+          x: 0
+        } : {
+          opacity: 0,
+          x: -50
+        }} transition={{
+          duration: 0.8,
+          delay: 0.2
+        }}>
             <h3 className="text-3xl font-bold mb-6 gradient-text">
               The Future of Intelligence
             </h3>
@@ -43,33 +57,51 @@ export default function About() {
             </div>
             
             <div className="mt-8 grid grid-cols-2 gap-6">
-              {[
-                { title: 'Founded', value: '2023' },
-                { title: 'Team Size', value: '10+' },
-                { title: 'Countries', value: '3' },
-                { title: 'AI Models', value: '100+' }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="text-center"
-                >
-                  <div className="text-2xl font-bold gradient-text">{item.value}</div>
+              {[{
+              title: 'Founded',
+              value: '2023'
+            }, {
+              title: 'Team Size',
+              value: '10+'
+            }, {
+              title: 'Countries',
+              value: '3'
+            }, {
+              title: 'AI Models',
+              value: '100+'
+            }].map((item, index) => <motion.div key={index} initial={{
+              opacity: 0,
+              scale: 0.8
+            }} animate={isInView ? {
+              opacity: 1,
+              scale: 1
+            } : {
+              opacity: 0,
+              scale: 0.8
+            }} transition={{
+              duration: 0.5,
+              delay: 0.4 + index * 0.1
+            }} className="text-center">
+                  <div className="text-2xl font-bold gradient-text bg-slate-500">{item.value}</div>
                   <div className="text-foreground/60">{item.title}</div>
-                </motion.div>
-              ))}
+                </motion.div>)}
             </div>
           </motion.div>
 
           {/* Right Content - Visual Elements */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          x: 50
+        }} animate={isInView ? {
+          opacity: 1,
+          x: 0
+        } : {
+          opacity: 0,
+          x: 50
+        }} transition={{
+          duration: 0.8,
+          delay: 0.4
+        }} className="relative">
             <div className="glass-card p-8 relative">
               <div className="absolute inset-0 bg-gradient-primary opacity-10 rounded-xl"></div>
               <div className="relative z-10">
@@ -79,29 +111,27 @@ export default function About() {
                 </p>
                 
                 <div className="space-y-4">
-                  {[
-                    'Ethical AI Development',
-                    'Human-Centered Design',
-                    'Continuous Learning',
-                    'Global Accessibility'
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-                      transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                      className="flex items-center space-x-3"
-                    >
+                  {['Ethical AI Development', 'Human-Centered Design', 'Continuous Learning', 'Global Accessibility'].map((item, index) => <motion.div key={index} initial={{
+                  opacity: 0,
+                  x: 20
+                }} animate={isInView ? {
+                  opacity: 1,
+                  x: 0
+                } : {
+                  opacity: 0,
+                  x: 20
+                }} transition={{
+                  duration: 0.5,
+                  delay: 0.6 + index * 0.1
+                }} className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-primary rounded-full pulse-glow"></div>
                       <span className="text-foreground/80">{item}</span>
-                    </motion.div>
-                  ))}
+                    </motion.div>)}
                 </div>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 }

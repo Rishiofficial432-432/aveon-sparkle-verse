@@ -59,7 +59,7 @@ export default function About() {
             <div className="mt-8 grid grid-cols-2 gap-6">
               {[{
               title: 'Founded',
-              value: '2023'
+              value: '2024'
             }, {
               title: 'Team Size',
               value: '10+'

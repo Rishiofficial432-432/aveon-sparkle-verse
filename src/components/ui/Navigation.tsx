@@ -66,7 +66,22 @@ export default function Navigation() {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-6">
-            {navItems.map(item => {})}
+            {navItems.map(item => (
+              <motion.a
+                key={item.id}
+                href={item.href}
+                whileHover={{ scale: 1.05 }}
+                className={`
+                  px-4 py-2 rounded-full text-sm font-medium transition-all duration-300
+                  ${activeSection === item.id
+                    ? 'bg-primary/20 text-primary'
+                    : 'text-muted-foreground hover:text-foreground'
+                  }
+                `}
+              >
+                {item.name}
+              </motion.a>
+            ))}
           </div>
 
           {/* CTA Button */}

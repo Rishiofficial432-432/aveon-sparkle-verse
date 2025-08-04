@@ -3,7 +3,7 @@ import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import Features from '@/components/sections/Features';
 import Roadmap from '@/components/sections/Roadmap';
-import Pricing from '@/components/sections/Pricing';
+
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/ui/Footer';
 import ScrollToTop from '@/components/ui/ScrollToTop';
@@ -15,7 +15,7 @@ const Index = () => {
       <About />
       <Features />
       <Roadmap />
-      <Pricing />
+      
       <Contact />
       <Footer />
       <ScrollToTop />

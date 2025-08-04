@@ -20,10 +20,6 @@ const navItems = [{
   href: '#roadmap',
   id: 'roadmap'
 }, {
-  name: 'Pricing',
-  href: '#pricing',
-  id: 'pricing'
-}, {
   name: 'Contact',
   href: '#contact',
   id: 'contact'
